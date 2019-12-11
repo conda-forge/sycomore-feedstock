@@ -14,7 +14,8 @@ build:
   script: 
     - set SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}  # [win]
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}  # [not win]
-    - "{{ PYTHON }} setup.py build_ext --cmake-options='-GNinja' install"
+    - "{{ PYTHON }} setup.py build_ext --cmake-options='-GNinja' bdist_wheel -d ."
+    - "{{ PYTHON }} -m pip install *.whl"
   skip: True  # [py<=35 or (win and vc<14)]
 
 requirements:
