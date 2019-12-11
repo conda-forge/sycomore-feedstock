@@ -14,13 +14,14 @@ build:
   script: 
     - set SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}  # [win]
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}  # [not win]
-    - "{{ PYTHON }} -m pip install . -vv"
+    - "{{ PYTHON }} setup.py build_ext --cmake-options='-GNinja' install"
   skip: True  # [py<=35 or (win and vc<14)]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake
+    - ninja
   host:
     - pybind11
     - python
