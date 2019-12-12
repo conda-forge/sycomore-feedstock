@@ -1,5 +1,5 @@
-mkdir %BUILD_DIR%
-mkdir %INSTALL_DIR%
+mkdir build
+cd build
 
 set SETUPTOOLS_SCM_PRETEND_VERSION=%PKG_VERSION%
 
@@ -9,4 +9,7 @@ cmake ^
   -DBUILD_PYTHON_WRAPPERS=ON -DUSE_OPENMP=OFF ^
   -DCMAKE_INSTALL_PREFIX=%PREFIX% -DPYTHON_EXECUTABLE=%PYTHON% ^
   ../
-cmake --build --config Release --target install .
+if errorlevel 1 exit 1
+
+cmake --build . --config Release --target install
+if errorlevel 1 exit 1
