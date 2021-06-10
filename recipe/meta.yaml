@@ -21,10 +21,8 @@ requirements:
   host:
     - pybind11
     - python
-    - setuptools
-    - setuptools_scm
-    - pip
     - numpy >=1.16
+    - xsimd
   run:
     - python
     - {{ pin_compatible('numpy') }}
