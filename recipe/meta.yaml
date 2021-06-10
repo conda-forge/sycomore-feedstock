@@ -1,5 +1,5 @@
 {% set name = "sycomore" %}
-{% set version = "1.2.1" %}
+{% set version = "1.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/lamyj/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: d09cc3519db25e6c377405c58a477ba92c38811acb79564a09d34a29214ee1b4
+  sha256: 2c4eed50e1e7e15ace979d6b2800442b336a87919d60168606d3bd54c99ca5bf
 
 build:
-  number: 1
-  skip: True  # [py<=35 or (win and vc<14)]
+  number: 0
+  skip: true  # [py<=35 or (win and vc<14)]
 
 requirements:
   build:
@@ -38,7 +38,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'MRI Simulation toolkit'
+  summary: MRI Simulation toolkit
 
   description: |
     Sycomore is an MRI simulation toolkit providing Bloch simulation, Extended 
