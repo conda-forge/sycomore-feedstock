@@ -11,13 +11,11 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<=35 or (win and vc<14)]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake
-    - ninja
   host:
     - pybind11
     - python
