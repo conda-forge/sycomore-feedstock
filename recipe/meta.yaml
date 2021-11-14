@@ -8,9 +8,11 @@ package:
 source:
   url: https://github.com/lamyj/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 255a0c5b6a0e0c5ca5ca21e082a002502a5a4a84584890641ec30cd15b2ad10b
+  patches:
+    - xsimd-8.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
