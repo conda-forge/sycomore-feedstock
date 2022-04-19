@@ -10,12 +10,13 @@ source:
   sha256: 5d685b7b8f774a3efc7aca81c53d9fff4691ae205af50495571749094f5cc299
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake
+    - make  # [unix]
   host:
     - pybind11
     - python
