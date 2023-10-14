@@ -1,5 +1,5 @@
 {% set name = "sycomore" %}
-{% set version = "1.3.2" %}
+{% set version = "2.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/lamyj/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 5d685b7b8f774a3efc7aca81c53d9fff4691ae205af50495571749094f5cc299
+  sha256: fda71837669d1b3edb27cfdc4d39e6707aa37169358dc3efa3983e0e71e3ba0c
   patches:
     - backport_build.patch
 
 build:
-  number: 3
+  number: 0
 
 requirements:
   build:
