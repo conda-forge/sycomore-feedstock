@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/lamyj/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: fda71837669d1b3edb27cfdc4d39e6707aa37169358dc3efa3983e0e71e3ba0c
+  patches:
+    - fix_ambiguous_symbol.patch
 
 build:
   number: 0
