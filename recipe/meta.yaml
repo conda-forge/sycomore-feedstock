@@ -1,5 +1,5 @@
 {% set name = "sycomore" %}
-{% set version = "1.3.2" %}
+{% set version = "2.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,13 @@ package:
 
 source:
   url: https://github.com/lamyj/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 5d685b7b8f774a3efc7aca81c53d9fff4691ae205af50495571749094f5cc299
+  sha256: fda71837669d1b3edb27cfdc4d39e6707aa37169358dc3efa3983e0e71e3ba0c
   patches:
-    - backport_build.patch
+    - fix_ambiguous_symbol.patch
 
 build:
-  number: 3
+  number: 0
+  skip: true  # [python_impl == 'pypy']
 
 requirements:
   build:
@@ -23,9 +24,9 @@ requirements:
     - pybind11
     - python
     - numpy >=1.16
-    # Pin version on macOS due to https://github.com/xtensor-stack/xsimd/pull/811
-    - xsimd <9.0.0|>9.0.1  # [osx]
-    - xsimd  # [not osx]
+    - xsimd >=10.0.0
+    - xtensor >=0.24.4
+    - xtensor-python >=0.26.0
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -42,11 +43,10 @@ about:
   summary: MRI Simulation toolkit
 
   description: |
-    Sycomore is an MRI simulation toolkit providing Bloch simulation, Extended 
-    Phase Graphs (EPG) (both regular and discrete, including 3D), and 
-    Configuration Models. Sycomore is a Python packge in which all 
-    computationnaly-intensive operations are run by a C++ backend, providing a 
-    very fast runtime.
+    Sycomore is an MRI simulation toolkit providing isochroma simulation and
+    Extended Phase Graphs (EPG) (both regular and discrete, including 3D).
+    Sycomore is a Python packge in which all computationnaly-intensive
+    operations are run by a C++ backend, providing a very fast runtime.
   doc_url: https://{{ name|lower }}.readthedocs.io/
   dev_url: https://github.com/lamyj/{{ name|lower }}
 

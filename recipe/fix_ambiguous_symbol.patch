@@ -1,0 +1,14 @@
+Description: Fix symbol ambiguity
+Origin: https://github.com/lamyj/sycomore/commit/50d1864
+diff --git a/wrappers/python/sycomore.cpp b/wrappers/python/sycomore.cpp
+index 3e027a5..e2f19a5 100644
+--- a/wrappers/python/sycomore.cpp
++++ b/wrappers/python/sycomore.cpp
+@@ -61,5 +61,6 @@ PYBIND11_MODULE(_sycomore, _sycomore)
+         },
+         "Generate evenly-spaced samples");
+     
+-    _sycomore.def("round", round<Quantity>, "Round to x nearest multiple of r");
++    _sycomore.def(
++        "round", sycomore::round<Quantity>, "Round to x nearest multiple of r");
+ }
