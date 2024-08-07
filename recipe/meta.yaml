@@ -12,12 +12,13 @@ source:
     - fix_ambiguous_symbol.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [python_impl == 'pypy']
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake
     - make  # [unix]
   host:
@@ -29,7 +30,6 @@ requirements:
     - xtensor-python >=0.26.0
   run:
     - python
-    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
